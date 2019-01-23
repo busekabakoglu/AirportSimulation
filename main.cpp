@@ -7,6 +7,16 @@
 #include <sstream>
 #include <queue>
 using namespace std;
+/***Discrete event simulation***
+**There are 2 rows of counters, one is luggage counters, the other one is security counters
+**In this airport there are 2 waiting queues, one for waiting in the luggage counter queue and one for
+waiting in the security counter queue
+there are three cases
+1)making all queues to priority queue
+2)if the passengers don't have luggage they can use online ticket and they don't need to wait in the luggage queue
+3)if the passengers is vip, they don't need to wait in the security queue
+So there are 8 cases for 3 possibilities
+*/
 int main(int argc, char* argv[]) {
     // below reads the input file
     // in your next projects, you will implement that part as well
