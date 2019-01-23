@@ -10,6 +10,7 @@
 #include "Passenger.h"
 #include <iostream>
 using namespace std;
+//comparison class to compare Passengers
 class Priority{
 public:
     bool operator()(const Passenger* pas1, const Passenger* pas2){
@@ -19,7 +20,7 @@ public:
         return pas1->flight > pas2->flight;
     }
 };
-
+//comparison calss to compare Events
 class isOrderedBefore{
 public:
 
