@@ -12,7 +12,8 @@ Action::Action(int passengerNum, int lugCounterNum, int secCounterNum) {
         secCounter.push_back((new Counter));
     }
 }
-double Action::case1(vector<Passenger*>& passs,int& missedFlight){//normal
+//case1 is no priority queue, no vip, no luggage considered
+double Action::case1(vector<Passenger*>& passs,int& missedFlight){
     missedFlight=0;
     while(!eventQ.empty()){
         Event* temp = eventQ.top();
@@ -83,7 +84,8 @@ double Action::case1(vector<Passenger*>& passs,int& missedFlight){//normal
     }
     return sum/(double)passs.size();
 }
-double Action::case2(vector<Passenger*>& passs, int& missedFlight){//priority queue
+//case2 only priority queue is considered
+double Action::case2(vector<Passenger*>& passs, int& missedFlight){
     missedFlight=0;
 
     priority_queue <Passenger*,vector<Passenger*>, Priority> lugwaitingPQ;
@@ -157,7 +159,8 @@ double Action::case2(vector<Passenger*>& passs, int& missedFlight){//priority qu
     return sum/(double)passs.size();
 
 }
-double Action::case3(vector<Passenger*>& passs, int& missedFlight){//vip
+//only vip is considered
+double Action::case3(vector<Passenger*>& passs, int& missedFlight){
     missedFlight=0;
 
     while(!eventQ.empty()){
@@ -236,7 +239,8 @@ double Action::case3(vector<Passenger*>& passs, int& missedFlight){//vip
     }
     return sum/(double)passs.size();
 }
-double Action::case4(vector<Passenger*>& passs, int& missedFlight){//priority queue and vip
+//priority queue and vip is considered, no luggage considered
+double Action::case4(vector<Passenger*>& passs, int& missedFlight){
     priority_queue <Passenger*,vector<Passenger*>, Priority> lugwaitingPQ;
     priority_queue <Passenger*,vector<Passenger*>, Priority> secwaitingPQ;
     missedFlight=0;
@@ -319,7 +323,8 @@ double Action::case4(vector<Passenger*>& passs, int& missedFlight){//priority qu
     return sum/(double)passs.size();
 
 }
-double Action::case5(vector<Passenger*>& passs, int& missedFlight){//online ticket
+//case5 only online ticket is considered
+double Action::case5(vector<Passenger*>& passs, int& missedFlight){
     missedFlight=0;
 
     while(!eventQ.empty()){
@@ -404,6 +409,7 @@ double Action::case5(vector<Passenger*>& passs, int& missedFlight){//online tick
     }
     return sum/(double)passs.size();
 }
+//case6 priority queue and online ticket considered, no vip
 double Action::case6(vector<Passenger*>& passs, int& missedFlight){//priority queue and online ticket
     missedFlight=0;
 
@@ -492,7 +498,8 @@ double Action::case6(vector<Passenger*>& passs, int& missedFlight){//priority qu
     return sum/(double)passs.size();
 
 }
-double Action::case7(vector<Passenger*>& passs, int& missedFlight){//vip
+//case7 online ticket and vip is considered, no priority q
+double Action::case7(vector<Passenger*>& passs, int& missedFlight){
     missedFlight=0;
 
     while(!eventQ.empty()){
@@ -604,7 +611,8 @@ double Action::case7(vector<Passenger*>& passs, int& missedFlight){//vip
     }
     return sum/(double)passs.size();
 }
-double Action::case8(vector<Passenger*>& passs, int& missedFlight){//vip online priority
+//case8 vip, online ticket and priority queue is considered
+double Action::case8(vector<Passenger*>& passs, int& missedFlight){
     missedFlight=0;
 
     priority_queue <Passenger*,vector<Passenger*>, Priority> lugwaitingPQ;
